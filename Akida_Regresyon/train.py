@@ -118,19 +118,3 @@ print('Test MAE after conversion :', mae_original)
 # İlk 5 tahmini ve gerçek değeri karşılaştır (orijinal ölçekte)
 print("First 5 predictions (original scale):", predictions_original[:5].flatten())
 print("First 5 true values (original scale):", Y_test_original[:5].flatten())
-
-""" # Donanım mapping
-device = devices()[0]
-print(f"Using device: {device}")
-model_akida.map(device)
-model_akida.summary()
-
-# Test a single example (orijinal ölçekte)
-sample_image = 0
-image = X_test_uint8[sample_image]
-output = model_akida.predict(image.reshape(1, look_back, 1, 1))
-output = output / 255.0  # 0-1 ölçeğine çevir
-output_original = scaler.inverse_transform(output.reshape(-1, 1))
-print(f"Input sequence (original scale): {scaler.inverse_transform(X_test_scaled[sample_image].squeeze().reshape(-1, 1)).flatten()}")
-print(f"True value (original scale): {Y_test_original[sample_image, 0]:.4f}")
-print(f"Predicted value (original scale): {output_original[0, 0]:.4f}") """
